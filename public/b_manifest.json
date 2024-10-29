@@ -11,8 +11,5 @@
   "develop": true,
   "scope": "",
   "start_url": "index.html",
-  "permissions": [
-    "download",
-    "comments"
-  ]
+  "permissions": ["download", "comments"]
 }
