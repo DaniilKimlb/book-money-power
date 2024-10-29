@@ -1,0 +1,18 @@
+{
+  "id": "money-power",
+  "name": "Деньги-Власть-Деньги",
+  "version": "1.0.0",
+  "description": "Книга, раскрывающая ключевые аспекты мировой финансовой системы и её влияние на власть и общество.",
+  "descriptions": {
+    "en": "A book that explores the key aspects of the global financial system and its influence on power and society.",
+    "ru": "Книга, раскрывающая ключевые аспекты мировой финансовой системы и её влияние на власть и общество."
+  },
+  "author": "PUJjhGLa7KesEa3Ee8K9pi49u1mW9xqQZB",
+  "develop": true,
+  "scope": "",
+  "start_url": "index.html",
+  "permissions": [
+    "download",
+    "comments"
+  ]
+}

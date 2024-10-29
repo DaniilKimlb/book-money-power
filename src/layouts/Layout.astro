@@ -1,0 +1,43 @@
+---
+import 'styles.css'
+
+export type Props = {
+  title?: string
+  description?: string
+}
+
+let { title = '', description = '' } = Astro.props as Props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content="Daniil Kim" />
+    <meta property="og:description" content={description} />
+  </head>
+
+  <body
+    class={`preload-transitions bg-white text-slate-800 dark:text-slate-200 dark:bg-neutral-900 min-w-[20rem]`}
+  >
+    <div>
+      <slot />
+    </div>
+    <script is:inline src="https://bastyon.com/js/lib/apps/sdk.js"></script>
+    <script is:inline>
+      setTimeout(() => {
+        if (
+          typeof window !== 'undefined' &&
+          document.body.classList.contains('preload-transitions')
+        ) {
+          document.body.classList.remove('preload-transitions')
+        }
+      }, 0)
+    </script>
+  </body>
+</html>

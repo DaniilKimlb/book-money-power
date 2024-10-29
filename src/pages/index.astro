@@ -1,0 +1,100 @@
+---
+import { Image } from 'astro:assets'
+import bookCover from 'assets/images/book-cover.jpeg'
+import Layout from 'layouts/Layout.astro'
+import Comments from 'components/Comments.svelte'
+import AddCommentButton from 'components/AddCommentButton.svelte'
+import SupportPKOINButton from 'components/SupportPKOINButton.svelte'
+import { POST_ID, RECIEVER } from 'config'
+
+const title = 'Деньги-Власть-Деньги'
+---
+
+<Layout>
+  <article
+    class="m-auto flex min-h-full w-full max-w-4xl flex-grow flex-col p-6 lg:max-w-7xl"
+  >
+    <h1 class="mx-0 mb-6 text-center text-3xl font-extrabold tracking-tight md:text-left">
+      {title}
+    </h1>
+
+    <div class="flex flex-col gap-6 md:flex-row md:items-stretch">
+      <div class="mx-auto md:mx-0 md:flex md:items-start">
+        <Image
+          class="w-full max-w-[180px] rounded-xl md:max-w-[220px] lg:max-w-[320px]"
+          src={bookCover}
+          alt="Обложка книги"
+        />
+      </div>
+
+      <div class="flex flex-col space-y-6 md:col-span-2">
+        <!-- Информация об авторе -->
+        <div>
+          <h2 class="text-xl font-semibold">
+            Автор: <span class="font-bold">Даниил Сачков</span>
+          </h2>
+        </div>
+
+        <!-- Краткое описание -->
+        <div class="space-y-4 text-balance leading-relaxed">
+          <h3 class="text-lg font-semibold">Краткое описание</h3>
+          <p class="font-medium">
+            В книге <span class="italic">"Деньги-Власть-Деньги"</span> рассматриваются
+            ключевые аспекты мировой финансовой системы и её влияние на общество. Прочитав
+            её, вы узнаете:
+          </p>
+
+          <!-- Ключевые темы книги -->
+          <ul class="list-inside list-disc space-y-2">
+            <li>
+              <span class="font-semibold">История мировой долларовой системы:</span>
+               как доллар стал основной мировой валютой.
+            </li>
+            <li>
+              <span class="font-semibold">Финансовые кризисы:</span>
+               как защитить свои активы в период глобальных экономических изменений.
+            </li>
+            <li>
+              <span class="font-semibold">Власть и финансы:</span>
+               как банкиры используют технологии, науку и философию для получения власти.
+            </li>
+            <li>
+              <span class="font-semibold">Роль Китая:</span>
+               его влияние на мировые события и экономические изменения.
+            </li>
+            <li>
+              <span class="font-semibold">Масштабные революции:</span>
+               возможно ли это в современном мире?
+            </li>
+            <li>
+              <span class="font-semibold">Духовные аспекты:</span>
+               какие ценности могут лежать в основе нового мирового порядка.
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
+          <a
+            href="/books/Деньги Власть Деньги.pdf"
+            download="Деньги Власть Деньги.pdf"
+            class="btn btn-primary btn-full text-center"
+          >
+            Скачать книгу
+          </a>
+          <SupportPKOINButton reciever={RECIEVER} client:only />
+        </div>
+      </div>
+    </div>
+
+    <section
+      id="comments-section"
+      class="relative -mx-3 mt-10 rounded-lg border border-slate-100 p-6 dark:border-slate-700"
+    >
+      <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
+        <h3 class="text-2xl font-semibold">Комментарии</h3>
+        <AddCommentButton postId={POST_ID} client:only />
+      </div>
+      <Comments postId={POST_ID} client:only />
+    </section>
+  </article>
+</Layout>
