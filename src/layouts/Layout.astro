@@ -6,7 +6,10 @@ export type Props = {
   description?: string
 }
 
-let { title = '', description = '' } = Astro.props as Props
+let {
+  title = 'Деньги-Власть-Деньги',
+  description = 'Книга, раскрывающая ключевые аспекты мировой финансовой системы и её влияние на власть и общество.',
+} = Astro.props as Props
 ---
 
 <!DOCTYPE html>
@@ -18,14 +21,30 @@ let { title = '', description = '' } = Astro.props as Props
     <title>{title}</title>
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
-    <meta property="og:site_name" content="Daniil Kim" />
     <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Деньги-Власть-Деньги" />
+    <meta property="og:url" content="https://book-money-power.vercel.app" />
+    <meta
+      property="og:image"
+      content="https://book-money-power.vercel.app/assets/images/book-cover.jpeg"
+    />
   </head>
 
   <body
     class={`preload-transitions bg-white text-slate-800 dark:text-slate-200 dark:bg-neutral-900 min-w-[20rem]`}
   >
-    <div>
+    <div
+      class="
+      m-auto
+      flex
+      min-h-full
+      w-full
+      max-w-4xl
+      flex-grow
+      flex-col
+      p-6
+      lg:max-w-7xl"
+    >
       <slot />
     </div>
     <script is:inline src="https://bastyon.com/js/lib/apps/sdk.js"></script>
