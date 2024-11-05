@@ -38,11 +38,20 @@ h6 {
 
 /* Tailwind или обычный CSS */
 .btn {
-  @apply min-w-0 truncate rounded-md px-4 py-2 text-sm font-medium shadow-sm transition focus:outline-none focus:ring-2;
+  @apply min-w-0 truncate rounded-md px-4 py-2 text-sm font-medium shadow-sm transition focus:outline-none focus:ring-2 hover:scale-105;
 }
 
 .btn-primary {
   @apply bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-300 dark:bg-blue-400 dark:hover:bg-blue-500 dark:focus:ring-blue-600;
+}
+
+.btn-bright {
+  @apply bg-cyan-500 text-white font-semibold hover:bg-cyan-600 focus:ring-cyan-300;
+  background: linear-gradient(90deg, #4dc0b5, #4db6f5); /* Мягкий градиент */
+}
+
+.btn-bright:hover {
+  background: linear-gradient(90deg, #4db6f5, #4dc0b5); /* Обратный градиент при наведении */
 }
 
 .btn-outline {

@@ -5,6 +5,8 @@ import Layout from 'layouts/Layout.astro'
 import Comments from 'components/Comments.svelte'
 import AddCommentButton from 'components/AddCommentButton.svelte'
 import SupportPKOINButton from 'components/SupportPKOINButton.svelte'
+import DonateButton from 'components/DonateButton.svelte'
+import DownloadBookButton from 'components/DownloadBookButton.svelte'
 import { POST_ID, RECIEVER } from 'config'
 
 const title = 'Деньги-Власть-Деньги'
@@ -69,13 +71,8 @@ const title = 'Деньги-Власть-Деньги'
       </div>
 
       <div class="flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
-        <a
-          href="/books/Деньги Власть Деньги.pdf"
-          download="Деньги Власть Деньги.pdf"
-          class="btn btn-primary btn-full text-center"
-        >
-          Скачать книгу
-        </a>
+        <DownloadBookButton client:only />
+        <DonateButton client:only />
         <SupportPKOINButton reciever={RECIEVER} client:only />
       </div>
     </div>
