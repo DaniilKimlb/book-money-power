@@ -54,6 +54,10 @@ h6 {
   background: linear-gradient(90deg, #4db6f5, #4dc0b5); /* Обратный градиент при наведении */
 }
 
+.btn-paypal {
+  @apply bg-blue-500 text-white font-semibold hover:bg-blue-600 focus:ring-blue-300;
+}
+
 .btn-outline {
   @apply border border-[#2557D6] bg-white text-[#2557D6] hover:bg-[#2557D6] hover:text-white focus:ring-[#2557D6]/50 dark:bg-gray-800 dark:text-white dark:hover:bg-[#1d4bb8];
 }

@@ -9,7 +9,7 @@
   }
 </script>
 
-{#if $isInBastion}
+<!-- {#if $isInBastion} -->
   <button
     on:click={_openDonationWindowPkoin}
     class="btn btn-outline btn-full flex items-center justify-center gap-2"
@@ -22,4 +22,4 @@
     />
     Поддержать автора PKOIN
   </button>
-  {/if}
+  <!-- {/if} -->
