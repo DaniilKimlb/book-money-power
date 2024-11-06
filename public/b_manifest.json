@@ -11,5 +11,5 @@
   "develop": true,
   "scope": "https://book-money-power.vercel.app",
   "start_url": "index.html",
-  "permissions": ["download", "comments"]
+  "permissions": ["externallink"]
 }
