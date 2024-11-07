@@ -14,5 +14,5 @@
   class="btn btn-bright btn-full flex items-center justify-center gap-2 text-center text-center"
 >
   <HeartIcon />
-  Поддержать автора
+  Поддержать криптовалютой
 </button>
