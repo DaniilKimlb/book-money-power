@@ -3,8 +3,7 @@
   import Comment from './Comment.svelte'
   import Spinner from './Spinner.svelte'
   import { isInBastion } from 'lib/sdkService.ts'
-  import { loadFormattedComments } from 'lib/commentsService.ts'
-  import { CommentIcon } from 'components/icons'
+  import { loadFormattedComments } from 'lib/commentsService'
   export let postId = null
   export let commentId = null
   function maybeReverseComments(comments) {

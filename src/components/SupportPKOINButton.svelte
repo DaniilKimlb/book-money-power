@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { openDonationWindowPkoin } from 'lib/donationService.ts'
-  import { isInBastion } from 'lib/sdkService.ts'
+  import { openDonationWindowPkoin } from 'lib/donationService'
+  import { isInBastion } from 'lib/sdkService'
     
   export let reciever: string
 

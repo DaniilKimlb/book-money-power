@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { openDonationWindowPkoin } from 'lib/donationService.ts'
-  import { openExternalLink } from 'lib/openExternalLink.ts'
+  import { openExternalLink } from 'lib/openExternalLink'
 
   function _openDonationPayPalWindow() {
     openExternalLink('https://paypal.me/pocketnet')
@@ -9,7 +8,6 @@
 
 <button
   on:click={_openDonationPayPalWindow}
-  rel="noopener noreferrer"
   class="btn btn-paypal btn-full flex items-center justify-center gap-2"
 >
   <!-- Иконка PayPal -->

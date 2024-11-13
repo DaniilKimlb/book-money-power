@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { openDonationWindowPkoin } from 'lib/donationService.ts'
-  import { openExternalLink } from 'lib/openExternalLink.ts'
+  import { openExternalLink } from 'lib/openExternalLink'
   import { HeartIcon } from 'components/icons'
 
   function _openDonationWindow() {
@@ -10,7 +9,6 @@
 
 <button
   on:click={_openDonationWindow}
-  rel="noopener noreferrer"
   class="btn btn-bright btn-full flex items-center justify-center gap-2 text-center"
 >
   <HeartIcon />

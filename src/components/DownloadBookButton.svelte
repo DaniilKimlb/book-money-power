@@ -1,7 +1,5 @@
 <script lang="ts">
-  import { openDonationWindowPkoin } from 'lib/donationService.ts'
-  import { openExternalLink } from 'lib/openExternalLink.ts'
-  import { isInBastion } from 'lib/sdkService.ts'
+  import { openExternalLink } from 'lib/openExternalLink'
   import { DownloadIcon } from 'components/icons'
 
   function _downloadBook() {

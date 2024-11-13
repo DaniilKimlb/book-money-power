@@ -1,7 +1,7 @@
 <script>
-  import { openAddComment } from 'lib/commentsService.ts'
+  import { openAddComment } from 'lib/commentsService'
   import { CommentIcon } from 'components/icons'
-  import { isInBastion } from 'lib/sdkService.ts'
+  import { isInBastion } from 'lib/sdkService'
 
   export let postId
 
