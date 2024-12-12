@@ -1,7 +1,7 @@
-import { SdkService } from './sdkService'
+import { BastyonService } from './bastyonService'
 
 export const openExternalLink = (url: string) => {
-  const sdk = SdkService.getInstance()
+  const sdk = BastyonService.getInstance()
   if (sdk.isInBastion) {
     sdk.openExternalLink(url)
   } else {

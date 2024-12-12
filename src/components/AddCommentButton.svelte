@@ -1,12 +1,12 @@
 <script>
   import { openAddComment } from 'lib/commentsService'
   import { CommentIcon } from 'components/icons'
-  import { isInBastion } from 'lib/sdkService'
+  import { isInBastyon } from 'lib/bastyonService'
 
   export let postId
 
   function _openAddComment() {
-    if ($isInBastion) {
+    if ($isInBastyon) {
       openAddComment(postId)
     } else {
       window.open(`https://bastyon.com/post?s=${postId}`, '_blank')

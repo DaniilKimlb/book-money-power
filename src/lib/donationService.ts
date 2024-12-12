@@ -1,5 +1,11 @@
-import { SdkService } from './sdkService'
+import { openExternalLink } from './openExternalLink'
+import { BastyonService } from './bastyonService'
 export function openDonationWindowPkoin(reciever: string) {
-  const sdkService = SdkService.getInstance()
-  return sdkService.openDonationWindowPkoin(reciever)
+  const bastyonService = BastyonService.getInstance()
+
+  if (bastyonService.isInBastion) {
+    return bastyonService.openDonationWindowPkoin(reciever)
+  } else {
+    openExternalLink(bastyonService.createPKOINDonationURL())
+  }
 }
