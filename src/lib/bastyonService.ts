@@ -75,8 +75,8 @@ export class BastyonService {
         items: [
           {
             image: 'https://vlast.xyz/_astro/book-cover.cc407386_2oMosu.webp',
-            name: 'Omega 3-6-9 (3-Pack)',
-            value: 0.1,
+            name: 'Donation',
+            value: 30,
           },
         ],
         store: {
