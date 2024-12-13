@@ -35,20 +35,6 @@
         <DislikeIcon />
         {comment.dislikes}
       </div>
-
-      {#if +comment.children !== 0}
-        <button
-          on:click={toggleReplies}
-          class="flex items-center gap-1 px-2 py-1 rounded-full text-sm hover:bg-gray-100 dark:hover:bg-gray-700"
-        >
-          Ответы ({comment.children})
-          <ChevronDownIcon class={showReplies ? 'rotate-180' : ''} />
-        </button>
-      {/if}
     </div>
-
-    {#if showReplies}
-      <Comments postId={comment.postId} commentId={comment.id} />
-    {/if}
   </div>
 </div>
