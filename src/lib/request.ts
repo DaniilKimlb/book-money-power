@@ -62,7 +62,6 @@ export const request = (function create(baseURL = '') {
           response.data = _data
         })
         .then(() => {
-           
           console.info(
             `%c%s %c%s %s`,
             'font-weight: bold',
@@ -85,8 +84,7 @@ export const request = (function create(baseURL = '') {
   }
 
   request.create = create
-  request.cancel =
-    typeof AbortController == 'function' ? AbortController : Object
+  request.cancel = typeof AbortController == 'function' ? AbortController : Object
 
   return request
 })()

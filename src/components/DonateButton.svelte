@@ -1,9 +1,11 @@
 <script lang="ts">
   import { openExternalLink } from 'lib/openExternalLink'
   import { HeartIcon } from 'components/icons'
+  
+  export let cryptoDonateLink: string
 
   function _openDonationWindow() {
-    openExternalLink('https://www.vlast.xyz/cryptodonation')
+    openExternalLink(cryptoDonateLink)
   }
 </script>
 

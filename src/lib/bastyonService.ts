@@ -67,24 +67,9 @@ export class BastyonService {
     }
   }
 
-  createPKOINDonationURL() {
+  createPKOINDonationURL(payment) {
     //@ts-ignore
-    var payments = window.bastyonLib.payments({
-      payment: {
-        address: 'PHdW4pwWbFdoofVhSEfPSHgradmrvZdbE5',
-        items: [
-          {
-            image: 'https://vlast.xyz/_astro/book-cover.cc407386_2oMosu.webp',
-            name: 'Donation',
-            value: 30,
-          },
-        ],
-        store: {
-          name: 'Daniel Satchkov',
-          site: 'vlast.xyz',
-        },
-      },
-    })
+    const payments = window.bastyonLib.payments({ payment })
 
     return payments.makeURL()
   }

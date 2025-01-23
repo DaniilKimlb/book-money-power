@@ -1,8 +1,10 @@
 <script lang="ts">
   import { openExternalLink } from 'lib/openExternalLink'
 
+  export let paypalDonateLink: string
+    
   function _openDonationPayPalWindow() {
-    openExternalLink('https://paypal.me/pocketnet')
+    openExternalLink(paypalDonateLink)
   }
 </script>
 

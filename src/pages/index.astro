@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets'
-import bookCover from 'assets/images/book-cover.jpeg'
 import Layout from 'layouts/Layout.astro'
 import Comments from 'components/Comments.svelte'
 import AddCommentButton from 'components/AddCommentButton.svelte'
@@ -8,104 +7,104 @@ import SupportPKOINButton from 'components/SupportPKOINButton.svelte'
 import DonateButton from 'components/DonateButton.svelte'
 import SupportPayPalButton from 'components/SupportPayPalButton.svelte'
 import DownloadBookButton from 'components/DownloadBookButton.svelte'
-import { POST_ID, RECIEVER } from 'config'
-
-const title = 'Деньги-Власть-Деньги'
+import { CONFIG_BOOK } from 'config'
 ---
 
 <Layout>
   <h1 class="mx-0 mb-6 text-center text-3xl font-extrabold tracking-tight md:text-left">
-    {title}
+    {CONFIG_BOOK.title}
   </h1>
 
   <div class="flex flex-col gap-6 md:flex-row md:items-stretch">
     <div
       class="mx-auto w-full min-w-[180px] max-w-[180px] md:mx-0 md:flex md:max-w-[220px] md:items-start lg:max-w-[320px]"
     >
-      <Image class="w-full rounded-xl" src={bookCover} alt="Обложка книги" />
+      <Image class="w-full rounded-xl" src={CONFIG_BOOK.bookCover} alt="Обложка книги" />
     </div>
 
     <div class="flex flex-col space-y-6 md:col-span-2">
       <div>
         <h2 class="text-xl font-semibold">
-          Автор: <span class="font-bold">Даниил Сачков</span>
+          Автор: <span class="font-bold">{CONFIG_BOOK.author}</span>
         </h2>
       </div>
 
       <div class="space-y-6">
         <div class="space-y-4 text-balance leading-relaxed">
           <h3 class="text-lg font-semibold">Краткое описание</h3>
-          <p class="font-medium">
-            В книге <span class="italic">"Деньги-Власть-Деньги"</span> рассматриваются
-            ключевые аспекты мировой финансовой системы и её влияние на общество. Прочитав
-            её, вы узнаете:
-          </p>
-          <ul class="list-inside list-disc space-y-2">
-            <li>
-              <span class="font-semibold">История мировой долларовой системы:</span>
-               как доллар стал основной мировой валютой.
-            </li>
-            <li>
-              <span class="font-semibold">Финансовые кризисы:</span>
-               как защитить свои активы в период глобальных экономических изменений.
-            </li>
-            <li>
-              <span class="font-semibold">Власть и финансы:</span>
-               как банкиры используют технологии, науку и философию для получения власти.
-            </li>
-            <li>
-              <span class="font-semibold">Роль Китая:</span>
-               его влияние на мировые события и экономические изменения.
-            </li>
-            <li>
-              <span class="font-semibold">Масштабные революции:</span>
-               возможно ли это в современном мире?
-            </li>
-            <li>
-              <span class="font-semibold">Духовные аспекты:</span>
-               какие ценности могут лежать в основе нового мирового порядка.
-            </li>
-          </ul>
+          <div class="space-y-4" set:html={CONFIG_BOOK.descriptionHTML} />
         </div>
 
         <div
           class="mt-6 flex flex-col flex-wrap gap-3 md:flex-row md:items-center md:gap-4"
         >
-          <DownloadBookButton client:only />
-          <DonateButton client:only />
-          <SupportPayPalButton client:only />
-          <SupportPKOINButton reciever={RECIEVER} client:only />
+          {
+            CONFIG_BOOK.buttons.downloadLink && (
+              <DownloadBookButton
+                linkToDownload={CONFIG_BOOK.buttons.downloadLink}
+                client:only
+              />
+            )
+          }
+          {
+            CONFIG_BOOK.buttons.cryptoDonateLink && (
+              <DonateButton
+                cryptoDonateLink={CONFIG_BOOK.buttons.cryptoDonateLink}
+                client:only
+              />
+            )
+          }
+          {
+            CONFIG_BOOK.buttons.paypalDonateLink && (
+              <SupportPayPalButton
+                paypalDonateLink={CONFIG_BOOK.buttons.paypalDonateLink}
+                client:only
+              />
+            )
+          }
+          {
+            CONFIG_BOOK.buttons.supportPKOIN && (
+              <SupportPKOINButton
+                payment={CONFIG_BOOK.buttons.supportPKOIN?.payment}
+                re={CONFIG_BOOK.buttons.supportPKOIN?.reciever}
+                client:only
+              />
+            )
+          }
         </div>
       </div>
     </div>
   </div>
-  <div class="mt-8 space-y-2">
-    <h3 class="text-lg font-semibold text-left">
-      Видеообзор книги «История центробанков»
-    </h3>
-    <p class="mt-2 text-sm leading-relaxed text-gray-600">
-      Эта глава из книги Даниила Сачкова
-      <span class="italic">«Деньги Власть Деньги»</span>
-    </p>
-    <div class="w-full overflow-hidden rounded-lg shadow-lg">
-      <iframe
-        class="h-[360px] w-full md:h-[480px]"
-        src="https://bastyon.com/embedVideo.php?embed=true&s=62e5fc9031e8352f7c47bacfd50fe905355e1cfc9108ced2b40d08e02a3a57ea&host=peertube600.pocketnet.app&id=f555baef-7f24-4444-8c9a-dea01151b511"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-  </div>
   {
-    POST_ID && (
+    CONFIG_BOOK.video && (
+      <div class="mt-8 space-y-2">
+        <h3 class="text-left text-lg font-semibold">{CONFIG_BOOK.video.title}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-gray-600">
+          {CONFIG_BOOK.video.subtitle}
+        </p>
+        <div class="w-full overflow-hidden rounded-lg shadow-lg">
+          <iframe
+            class="h-[360px] w-full md:h-[480px]"
+            src={CONFIG_BOOK.video.url}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </div>
+      </div>
+    )
+  }
+  {
+    CONFIG_BOOK.buttons.postId && (
       <section
         id="comments-section"
-        class="relative -mx-3 mt-10 rounded-lg border border-slate-100 p-6 dark:border-slate-700">
+        class="relative -mx-3 mt-10 rounded-lg border border-slate-100 p-6 dark:border-slate-700"
+      >
         <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
           <h3 class="text-2xl font-semibold">Комментарии</h3>
-          <AddCommentButton postId={POST_ID} client:only />
+          <AddCommentButton postId={CONFIG_BOOK.buttons.postId} client:only />
         </div>
-        <Comments postId={POST_ID} client:only />
+        <Comments postId={CONFIG_BOOK.buttons.postId} client:only />
       </section>
     )
   }

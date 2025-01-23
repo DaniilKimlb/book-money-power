@@ -2,9 +2,10 @@
   import { openDonationWindowPkoin } from 'lib/donationService'
 
   export let reciever: string
+  export let payment
 
   function _openDonationWindowPkoin() {
-    openDonationWindowPkoin(reciever)
+    openDonationWindowPkoin({ reciever, payment })
   }
 </script>
 

@@ -8,21 +8,24 @@ export async function loadFormattedComments(
   const bastyonService = BastyonService.getInstance()
 
   const comments: Comment[] = await bastyonService.getComments(params)
-  
+
   const userIds = [...new Set(comments.map((comment) => comment.address))]
 
   const userProfiles: UserProfile[] = await bastyonService.getUserProfiles({ userIds })
 
-  const commentsOnlyWithMsg = comments.filter((comment) => typeof comment.msg === 'string')
-  
+  const commentsOnlyWithMsg = comments.filter(
+    (comment) => typeof comment.msg === 'string',
+  )
+
   return commentsOnlyWithMsg.map((comment) => {
     const user = userProfiles.find((profile) => profile.address === comment.address)
 
-    const msg = JSON.parse(comment.msg) 
+    const msg = JSON.parse(comment.msg)
 
     return {
       userName: user?.name || 'Unknown',
-      avatar: user?.i || `https://ui-avatars.com/api/?name=${user?.name}&background=random`,
+      avatar:
+        user?.i || `https://ui-avatars.com/api/?name=${user?.name}&background=random`,
       id: comment.id,
       postId: comment.postid,
       children: comment.children,

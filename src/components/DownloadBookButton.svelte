@@ -2,8 +2,10 @@
   import { openExternalLink } from 'lib/openExternalLink'
   import { DownloadIcon } from 'components/icons'
 
+  export let linkToDownload: string
+
   function _downloadBook() {
-    openExternalLink('/books/Деньги Власть Деньги.pdf')
+    openExternalLink(linkToDownload)
   }
 </script>
 

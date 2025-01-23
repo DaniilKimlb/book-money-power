@@ -38,7 +38,7 @@ h6 {
 
 /* Tailwind или обычный CSS */
 .btn {
-  @apply min-w-0 truncate rounded-md px-4 py-2 text-sm font-medium shadow-sm transition focus:outline-none focus:ring-2 hover:scale-105;
+  @apply min-w-0 truncate rounded-md px-4 py-2 text-sm font-medium shadow-sm transition hover:scale-105 focus:outline-none focus:ring-2;
 }
 
 .btn-primary {
@@ -46,16 +46,20 @@ h6 {
 }
 
 .btn-bright {
-  @apply bg-cyan-500 text-white font-semibold hover:bg-cyan-600 focus:ring-cyan-300;
+  @apply bg-cyan-500 font-semibold text-white hover:bg-cyan-600 focus:ring-cyan-300;
   background: linear-gradient(90deg, #4dc0b5, #4db6f5); /* Мягкий градиент */
 }
 
 .btn-bright:hover {
-  background: linear-gradient(90deg, #4db6f5, #4dc0b5); /* Обратный градиент при наведении */
+  background: linear-gradient(
+    90deg,
+    #4db6f5,
+    #4dc0b5
+  ); /* Обратный градиент при наведении */
 }
 
 .btn-paypal {
-  @apply bg-blue-500 text-white font-semibold hover:bg-blue-600 focus:ring-blue-300;
+  @apply bg-blue-500 font-semibold text-white hover:bg-blue-600 focus:ring-blue-300;
 }
 
 .btn-outline {
