@@ -14,6 +14,6 @@
   }
 </script>
 
-<button on:click={_openAddComment} class="btn btn-comment flex items-center gap-2">
+<button on:click={_openAddComment} class="btn btn-accent flex items-center gap-2">
   <CommentIcon />Оставить комментарий
 </button>

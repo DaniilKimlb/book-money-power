@@ -7,6 +7,7 @@ import SupportPKOINButton from 'components/SupportPKOINButton.svelte'
 import DonateButton from 'components/DonateButton.svelte'
 import SupportPayPalButton from 'components/SupportPayPalButton.svelte'
 import DownloadBookButton from 'components/DownloadBookButton.svelte'
+import DownloadAudioBookButton from 'components/DownloadAudioBookButton.svelte'
 import { CONFIG_BOOK } from 'config'
 ---
 
@@ -42,6 +43,14 @@ import { CONFIG_BOOK } from 'config'
             CONFIG_BOOK.buttons.downloadLink && (
               <DownloadBookButton
                 linkToDownload={CONFIG_BOOK.buttons.downloadLink}
+                client:only
+              />
+            )
+          }
+          {
+            CONFIG_BOOK.buttons.downloadAudioLink && (
+              <DownloadAudioBookButton
+                linkToDownload={CONFIG_BOOK.buttons.downloadAudioLink}
                 client:only
               />
             )
@@ -98,8 +107,7 @@ import { CONFIG_BOOK } from 'config'
     CONFIG_BOOK.buttons.postId && (
       <section
         id="comments-section"
-        class="relative -mx-3 mt-10 rounded-lg border border-slate-100 p-6 dark:border-slate-700"
-      >
+        class="relative -mx-3 mt-10 rounded-lg border border-slate-100 p-6 dark:border-slate-700">
         <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
           <h3 class="text-2xl font-semibold">Комментарии</h3>
           <AddCommentButton postId={CONFIG_BOOK.buttons.postId} client:only />

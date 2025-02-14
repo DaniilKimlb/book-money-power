@@ -47,6 +47,7 @@ export const CONFIG_BOOK = {
   },
   buttons: {
     downloadLink: '/books/Деньги Власть Деньги.pdf',
+    downloadAudioLink: 'https://peertube700.pocketnet.app/download/streaming-playlists/hls/videos/3f3dbf7f-c3a0-4965-a3a6-8eab5bfaca77-0-fragmented.mp4',
     cryptoDonateLink: 'https://www.vlast.xyz/cryptodonation',
     paypalDonateLink: 'https://paypal.me/pocketnet',
     supportPKOIN: {
